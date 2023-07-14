@@ -1,0 +1,33 @@
+<div class="container">
+    <table class="beautiful-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th colspan="4">
+                    <div class="date-header">
+                        <span *ngFor="let date of dates" [class.active]="selectedDate === date"
+                            (click)="onSelectDate(date)">{{ date | date:'MMM d, y' }}</span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <th>League</th>
+                <th>Match Name</th>
+                <th>Kick Off (Local)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let date of dates">
+                <ng-container *ngIf="selectedDate === date">
+                    <tr *ngFor="let item of getMatchesByDate(date)" (click)="redirectToMatchDetails(item)">
+                        <td>{{ item.Country }}</td>
+                        <td>{{ item.LeagueName }}</td>
+                        <td>{{ item.MatchName }}</td>
+                        <td>{{ item.KickOffUtc | date:'MMM d, y, HH:mm' }}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+body{
+    font-family: sans-serif;
+}
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.common-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto
+}
+.form-input{
+    height: 35px;
+    margin-bottom: 20px;
+    border: 1px solid blueviolet;
+    padding-left: 15px;
+    color: blueviolet;
+}
+.form-button{
+    height: 35px;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    cursor: pointer;
+}
+.auth-toggle-link{
+    color: blueviolet;
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: left;
+}
+.Error-p{
+    color: red;
+    font-size: 14px;
+}
+.message-p{
+    color: green;
+}
+.carousel-caption{
+    background-color: #00000070;
+    border-radius: 10px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: black;
+    border-radius: 5px;
+}
