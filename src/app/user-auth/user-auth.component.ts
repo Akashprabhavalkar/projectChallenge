@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 // import { signUp } from '../data-type';
-import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -19,7 +18,8 @@ export class UserAuthComponent implements OnInit {
   MarketId: any
   MatchId: any
   betBuilderBets: any = []
-  constructor(private user: UserService, private route: ActivatedRoute, private http: HttpClient) { }
+  betBuilderOdds:any
+  constructor( private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.match = history.state.match;
@@ -51,17 +51,16 @@ export class UserAuthComponent implements OnInit {
       console.log("BetBuilderBets", data.BetBuilderSelections);
 
       this.betBuilderBets = data.BetBuilderSelections
+      this.betBuilderOdds=data.TotalOdds
 
 
     });
   }
 
-  signUp(data: any) {
-    this.user.userSignUP(data)
-  }
   slipChange(MarketId: any) {
     console.log(MarketId);
     this.MarketId = MarketId
+    this.BetBuilderBets()
   }
   legChange(selectionId: any) {
     console.log(selectionId)

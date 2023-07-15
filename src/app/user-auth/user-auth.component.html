@@ -1,38 +1,41 @@
+<div class="container">
+  <h2 class="match-details-title">Match Details</h2>
+  <p class="match-details-info">Top: {{ match.Team1Name }} vs {{ match.Team2Name }}</p>
+  <p class="match-details-info">Kick-off: {{ match.MatchDate }}</p>
+  <br>
+  <span>Select a Bet Slip: </span>
+  <select class="bet-slip-select" [(ngModel)]="selectedBetSlipOption" (ngModelChange)="slipChange($event)">
 
+    <option *ngFor="let option of betSlipOptions" [value]="option.MarketId">{{ option.MarketName }}</option>
+  </select> &nbsp;
+  <span>Legs: </span>
+  <select class="leg-select" [(ngModel)]="selectedLeg" (ngModelChange)="legChange($event)">
 
-<h2 class="match-details-title">Match Details</h2>
-<p class="match-details-info">Top: {{ match.Team1Name }} vs {{ match.Team2Name }}</p>
-<p class="match-details-info">Kick-off: {{ match.MatchDate }}</p>
-<br>
-<span>Select a Bet Slip: </span>
-<select class="bet-slip-select" [(ngModel)]="selectedBetSlipOption" (ngModelChange)="slipChange($event)">
-
-  <option *ngFor="let option of betSlipOptions" [value]="option.MarketId">{{ option.MarketName }}</option>
-</select> &nbsp;
-<span>Legs: </span>
-<select class="leg-select" [(ngModel)]="selectedLeg" (ngModelChange)="legChange($event)">
-
-  <option *ngFor="let option of legs" [value]="option.selectionId">{{ option.selectionValue }}</option>
-</select><br>
-
-<table *ngIf="betBuilderBets.length != 0" class="bet-builder-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Market</th>
-      <th>Sub Market</th>
-      <th>Outcome</th>
-      <th>Key Stat</th> 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let bet of betBuilderBets">
-      <td>{{ bet.Id }}</td>
-      <td>{{ bet.Market }}</td>
-      <td>{{ bet.Selection.slice(0, 3) }}</td>
-      <td>{{ bet.Selection.slice(3) }}</td>
-      <td>{{ bet.RTB }}</td>
-    </tr>
-  </tbody>
-</table>
-
+    <option *ngFor="let option of legs" [value]="option.selectionId">{{ option.selectionValue }}</option>
+  </select><br>
+  <div *ngIf="betBuilderBets.length != 0">
+    <p>Bet Builder: </p><br>
+    <table class="bet-builder-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Market</th>
+          <th>Sub Market</th>
+          <th>Outcome</th>
+          <th>Key Stat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bet of betBuilderBets">
+          <td>{{ bet.Id }}</td>
+          <td>{{ bet.Market }}</td>
+          <td>{{ bet.Selection.slice(0, 3) }}</td>
+          <td>{{ bet.Selection.slice(3) }}</td>
+          <td>{{ bet.RTB }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <p>Bet Builder Odds: {{betBuilderOdds}}</p>
+  </div>
+</div>

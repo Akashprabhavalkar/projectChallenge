@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 // import { product } from '../data-type';
-import { ProductService } from '../services/product.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -17,7 +16,7 @@ export class HomeComponent implements OnInit {
   dates: Date[] = [];
   selectedDate?: Date;
 
-  constructor(private product: ProductService, private http: HttpClient, private router: Router) { }
+  constructor( private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.http.get<any>('http://cms.bettorlogic.com/api/BetBuilder/GetFixtures?sports=1').subscribe(data => {

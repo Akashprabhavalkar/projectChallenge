@@ -39,3 +39,10 @@
 .date-header span.active {
   background-color: #ccc;
 }
+.betHead{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #333;
+  color: #ccc;
+}

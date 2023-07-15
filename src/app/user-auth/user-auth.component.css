@@ -9,11 +9,15 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
   }
   
   .match-details-info {
     font-size: 16px;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
   }
   
   .bet-slip-select,
@@ -67,3 +71,8 @@
     cursor: pointer;
   }
   
+  .match-center{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
